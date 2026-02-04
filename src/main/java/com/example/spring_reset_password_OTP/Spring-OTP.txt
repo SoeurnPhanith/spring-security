@@ -1,0 +1,7 @@
+**. Flow to do of reset password using OTP
+    1. User → Request Reset Password (enter email)
+    2. Server → Generate OTP + Save OTP to DB → Send Email OTP
+    3. User → Enter OTP
+    4. Server → Verify OTP
+    5. User → Enter New Password
+    6. Server → Encrypt password + Update DB → Delete OTP
