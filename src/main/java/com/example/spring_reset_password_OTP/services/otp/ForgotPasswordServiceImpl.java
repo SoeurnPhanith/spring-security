@@ -3,6 +3,8 @@ package com.example.spring_reset_password_OTP.services.otp;
 import com.example.spring_reset_password_OTP.entities.ForgotPasswordEntity;
 import com.example.spring_reset_password_OTP.repositories.ForgotPasswordRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import java.time.LocalDateTime;
 import java.util.Random;
 
@@ -41,6 +43,7 @@ public class ForgotPasswordServiceImpl implements ForgotPasswordService {
     }
 
     @Override
+    @Transactional
     public void deleteOtp(String email) {
         //delete otp who after 5mn
         forgotPasswordRepo.deleteByEmail(email);

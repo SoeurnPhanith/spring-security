@@ -24,6 +24,7 @@ public class PasswordService {
         UserEntity user = userRepository.findByEmail(email).orElseThrow(
                 ()->new RuntimeException("user not found"));
         String otp = forgotPasswordService.generateOtp(email);
+
         emailService.sentOptEmail(email,otp);
     }
 
@@ -37,7 +38,7 @@ public class PasswordService {
             throw new RuntimeException("Invalid or expired OTP");
         }
 
-        //find email
+        //find emailboyRi12
         UserEntity user = userRepository.findByEmail(email)
                 .orElseThrow(()->new RuntimeException("user not found"));
 
@@ -46,7 +47,7 @@ public class PasswordService {
         userRepository.save(user);
 
         //delete otp
-        forgotPasswordService.deleteOtp(otp);
+        forgotPasswordService.deleteOtp(email);
     }
 
 }
